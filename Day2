@@ -1,35 +1,101 @@
-\xA=\n
-\xB=\r
-\xC=
-\xG="compilation error"
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-	int main() {
-		char ch[20] = "abcdefghi";
-		printf("\n%5.2s", ch);
-		system("pause");
-		return 0;
-	}
-
+\xA=\n(new Line)
+\xB=\v(vertical tab)
+\xC=\f(form feed)
+\xD=\r(carriage return)
+\xG="compilation error" //Clearly, \x is not followed by hexa digits( A - F ).
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-	int main() {
-		char *ptr ="india%s";
-		printf(ptr);
-		system("pause");
-		return 0;
-	}
+int main()
+{
+	printf("ABCD\xA");
+	printf("EFG");
+	return 0;
+}
+output:ABCD
+       EFG
+Explanation
+Alternative form of \n is \xA (new line).
+
+#include<stdio.h>
+int main()
+{
+	printf("ABCD\xB");
+	printf("EFG");
+	return 0;
+}
+output:ABCD♂EFG
+Explanation
+Alternative form of \v is \xB (vertical tab).
 
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+int main()
+{
+	printf("ABCD\xC");
+	printf("EFG");
+	return 0;
+}
+output:. ABCD♀EFG
+Explanation
+Alternative form of \f is \xC (form feed)
+
+#include<stdio.h>
+int main()
+{
+	printf("ABCD\xD");
+	printf("EFG");
+	return 0;
+}
+output: EFGD
+Explanation
+Alternative form of \r is \xD (carriage return).
+
+#include<stdio.h>
+int main()
+{
+	char ch[20] = "abcdefghijklm";
+	printf("\n%5.2s",ch);
+	return 0;
+}
+output:    ab
+Explanation
+5 space followed by ab ie( 5.2 ).
+
+
+#include<stdio.h>
+int main()
+{
+	char *ptr = "India%s";
+	printf(ptr);
+	return 0;
+}
+output:india
+Explanation
+Clearly, printf("India%s"); prints India. Here %s is neglected as there is nothing declared on the right most side of printf(); in string format.
+
+#include<stdio.h>
+int main(){
+	char str[25];
+	printf(" %d ",printf("c-aptitude"));
+	return 0;
+}
+output:c-aptitude  10
+
+#include<stdio.h>
+# define loop while(true)
+int main()
+{
+	loop;  
+	printf("c-aptitude");
+	return 0;
+}
+output:
+ program never ends
+ 
+ 
+#include<stdio.h>
 	int main() {
 		printf("%d", 5.25);
-		system("pause");
 		return 0;
 	}
 op:0
@@ -46,17 +112,55 @@ op:0
   
   
   
-  #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+#include<stdio.h>
 	int main() {
 		int a, b;
 		printf("%d", scanf_s("%d %d", &a, &b));
 		system("pause");
 		return 0;
 	}
+output:2
 
+#include<stdio.h>
+static struct student
+{
+	int a;
+	int b;
+}struct_var{2,3};
+int main()
+{
+	printf("%d %d",struct_var.a,struct_var.b);
+	return 0;
+}
+output=2,3
 
+#include<stdio.h>
+int main()
+{
+	int a = 5;
+	printf("%d"+1,a);
+	return 0;
+}
+output:d
+
+#include<stdio.h>
+int main()
+{
+	int a = 5;
+	printf("%dha"+2,a);
+	return 0;
+}
+output:ha
+
+#include<stdio.h>
+int main()
+{
+	static int arr[5],i;
+	for(i=0;i<=5;i++)
+	printf("%d",arr[i] = 1);
+	return 0;
+}
+output:111111
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -267,156 +371,205 @@ int main() {
 
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
+int main()
+{
 	char num = '\010';
 	printf("%d", num);
-	system("pause");
 	return 0;
 }
 
 op:8
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
-	void num = 10;
+int main()
+{
+	void  num=10;
 	printf("%v", num);
-	system("pause");
 	return 0;
 }
-op:compilation error bcz no void varibles and pointers
+op:compilation error bcz Void is not a valid data type for declaring variables.
 
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
+int main()
+{
 	void *ptr;
-	int num = 10;
+	int  num = 10;
 	ptr = &num;
 	printf("%d", ptr);
-	system("pause");
 	return 0;
 }
 op:Adress
-void have pointers
+ void is a valid for declaring pointer variable *ptr thus printf displays the address of a normal variable num
 
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
-	printf("%d\t", sizeof(20.5));
-	printf("%d\t", sizeof(4));
-	system("pause");
+##include<stdio.h>
+int main()
+{
+	printf("%d\t",sizeof(2.5));
+	printf("%d\t",sizeof(2));
+	printf("%d",sizeof('A'));
 	return 0;
 }
+output:8 4 1
 
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
+int main(){
 	signed a;
 	unsigned b;
-	a = 6u + -16 + 16u + -6; //0
-	b = a + 1;//1
-	if (a == b)
-		printf("%d %d", a, b);
+	a = 6u + -16 + 16u + -6;
+	b = a + 1;
+	if(a == b)
+	printf("%d %d",a,b);
 	else
-		printf("%d %d", a, b);
-	
+	printf("%u %u",a, b);
 	return 0;
 }
-
+output:0 1
 
 enum is applied only for integers
 enum fruits{apple,bannana};
 
+#include<stdio.h>
+int main(){
+	float me = 5.25;
+	double you = 5.25;
+	if(me == you)
+		printf("I love U");
+	else
+		printf("I hate U");
+	return 0;
+}
+output: I hate U
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
+int main()
+{
 	extern int num;
-	num=5;
-	printf("%d",num);
+	num = 5;
+	printf("%d", num);
 	return 0;
 }
+output:Linker Error
 
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
-char * ptr;
-	printf("%d %d",sizeof(ptr),sizeof(*ptr));
+int main(){
+	char *ptr;
+	printf("%d %d", sizeof(*ptr), sizeof(ptr));
 	return 0;
 }
+output:1 4
 
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
-int num=- -2;
-printf("%d",num);
+int main(){
+	int num = - -2;
+	printf("num = %d", num);
 	return 0;
 }
+output:2
 
 
-interrupt //odd
+interupt //odd
 register
 extern
 huge //extend memmory
+Extern, huge, registers are all the modifiers of data types in C. Interrupt is also a modifier data type, 
+but we misspelled the word as interupt
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+int main()
+{
+	float a = 5.0;
+	printf ("Result is = %d ", (24 / 5) * a);
+	return 0;
+}
+output:0
+
+#include<stdio.h>
 int main() {
 	10;
 	printf("%d", 10);
 	system("pause");
 	return 0;
 }
+output:10
+
+#include<stdio.h>
+int main()
+{
+	enum fruits{ apple, mango } ;
+	printf("%d %d", apple, mango);	
+	return 0;
+}
+output:0 1
 
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
-char num=127;
-num=num+1;
-printf("%d",num);
+int main()
+{
+	char num = 127;
+	num = num + 1;
+	printf("%d", num);
 	return 0;
 }
+
+output:-128
+
+#include<stdio.h>
+int main()
+{
+	extern int num;
+	printf("%d", num);
+	return 0;
+}
+int num = 10;
+output:10
+
+#include<stdio.h>
+int main()
+{
+	int size = sizeof(volatile) + sizeof(const);
+	printf("%d",++size);
+	return 0;
+}
+
+op:output not predictable bcz volatile // 9
 
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
-int size=sizeof(volatile)+sizeof(const);
-printf("%d",++size);
+int main()
+{
+	static int num = 6;
+	printf("%d ",num--);
+	if(num)
+	main();
 	return 0;
 }
-
-op:output not predictable bcz volatile is noit predictable
-
+output:6 5 4 3 2 1
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
-static int num=6;
-printf("%d",num--);
-if(num)
-main();
+int main()
+{
+	if (sizeof(char) > -12)
+	printf("yes");
+	else
+	printf("No");
 	return 0;
 }
+output:no
+Explanation:
+if negative integers are given it will loop through its range 0 to 65,535. i.e) -12 is equal to 65524.
+
+#include<stdio.h>
+int main()
+{
+	printf(" %%% ");
+	return 0;
+}
+output:%
 
 
 #include<stdio.h>
@@ -428,74 +581,175 @@ double y=3.14;
 printf("%f %ff",x,y);
 	return 0;
 }
-
+output:3.140000 3.140000f
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
-static int num=3;
-
-if(--num)
-main();
-printf("%d",num);
+int main()
+{
+	static int num = 3;
+	if(--num)
+	{
+		main();
+		printf("%d ",num);
+	}
 	return 0;
 }
+output:0 0
 
-//wait 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
-int i=5;
-int a=++i + ++i + ++i + ++i;
+int main()
+{
+	typedef int num;
+	num num1 = 5;
+	printf("%d", num1);
+	return 0;
+}
+output:5
+
+#include<stdio.h>
+int main()
+{
+	int num = 8;
+	printf ("%d %d", num << 1, num >> 1);
+	return 0;
+}
+output:16 4
+
+
+#include<stdio.h>
+int main()
+{
+	int i = 5;
+	int a = ++i + ++i;
+	printf("%d",a);
+	return 0;
+}
+output:14
+
+#include<stdio.h>
+int main()
+{
+	int i = 5;
+	int a = ++i + ++i + ++i;
+	printf("%d",a);
+	return 0;
+}
+output:22
+a = ++i + ++i + ++i;
+a = 6 + ++i + ++i
+a = 6 + 7 + ++i
+a = 7 + 7 + ++i
+a = 7 + 7 + 8
+a = 7 + 7 + 8
+Finally a = 22
+
+
+#include<stdio.h>
+int main()
+{
+	int i = 5;
+	int a = ++i + ++i + ++i + ++i;
+	printf("%d",a);
+	return 0;
+}
+output:31 
+
+
+#include<stdio.h>
+int main(){
+	int i = 16;
+	i =! i > 15;
+	printf("i = %d",i);
+	return 0;
+}
+output:0
+
+#include<stdio.h>
+int main()
+{
+	int i = 5;
+	int a = --i + --i;
+	printf("%d",a);
+	return 0;
+}
+output:6
+
+#include<stdio.h>
+int main()
+{
+	int i = 5;
+	int a = --i + --i + --i;
+	printf("%d",a);
+	return 0;
+}
+output:8
+
+#include<stdio.h>
+int main()
+{
+	int i = 5;
+	int a = --i - --i - --i - --i;
+	printf("%d",a);
+	return 0;
+}
+output:-3
+
+#include<stdio.h>
+int main()
+{
+	int a = 2, b = 2, c = 0, d = 2, m;
+	m = a++ && b++ && c++ || d++;
+	printf("%d %d %d %d %d",a, b, c, d, m);
+	return 0;
+}
+output:3 3 1 3 1
+
+
+#include<stdio.h>
+int main()
+{
+int i = 5;
+int a = --i + ++i - i-- + --i;
 printf("%d",a);
-	return 0;
+return 0;
 }
-//wait
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
-int i=5;
-int a=--i + --i + --i ;
-printf("%d",a);
-	return 0;
-}
-
-//wait
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
-int i=5;
-int a=--i + --i + --i + --i;
-printf("%d",a);
-	return 0;
-}
-
+output:8
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
-int a=2,b=2,c=0,d=2,m;
-m=a++&&b++&&c++||d++;
-printf("%d %d %d %d %d",a,b,c,d,m);
-printf("%d",a);
+int main()
+{
+	int a = 5;
+	a = 1, 2, 3;
+	printf("%d", a);
 	return 0;
 }
-
+output:1
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-int main() {
-int i=5;
-int a=--i + ++i - i-- + --i;
-printf("%d",a);
+int main()
+{
+	int a;
+	a = (1, 2, 3);
+	printf("%d", a);
 	return 0;
 }
+output:3
+
+#include<stdio.h>
+int main()
+{
+	unsigned int num = -4;
+	printf("%d", ~num);
+	return 0;
+}
+output
+int num = -4;
+which is num = -100 (in binary 0's and 1's)
+~num = +011 (in binary 0's and 1's)
+~num = 3
+
+
+
 //own
 #include<stdio.h>
 #include<stdlib.h>
