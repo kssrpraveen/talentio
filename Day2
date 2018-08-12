@@ -1,0 +1,647 @@
+\xA=\n
+\xB=\r
+\xC=
+\xG="compilation error"
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+	int main() {
+		char ch[20] = "abcdefghi";
+		printf("\n%5.2s", ch);
+		system("pause");
+		return 0;
+	}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+	int main() {
+		char *ptr ="india%s";
+		printf(ptr);
+		system("pause");
+		return 0;
+	}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+	int main() {
+		printf("%d", 5.25);
+		system("pause");
+		return 0;
+	}
+op:0
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+	int main() {
+		printf("%d",(int)5.25);
+		system("pause");
+		return 0;
+	}
+  op:5
+  
+  
+  
+  #include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+	int main() {
+		int a, b;
+		printf("%d", scanf_s("%d %d", &a, &b));
+		system("pause");
+		return 0;
+	}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+extern int num;
+	int main() {
+		printf("%d", num);
+		system("pause");
+		return 0;
+	}
+	int num = 20;
+op:20
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+extern  num;
+int main() {
+	printf("%d", num);
+	system("pause");
+	return 0;
+}
+int num = 20;
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	struct num {
+		int num;
+	};
+	struct num key = { 25 };
+	printf("%d", key.num);
+	system("pause");
+	return 0;
+}
+int num = 20;
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	printf("%d", EOF);
+	system("pause");
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	int scanf = 13;
+	printf("%d", scanf);
+	system("pause");
+	return 0;
+}
+op:13
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	char printf[25] = "printf";
+	puts(printf);
+	system("pause");
+	return 0;
+}
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	int main = 47;
+	printf("%d", main);
+	system("pause");
+	return 0;
+}op:47
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	extern num;
+	printf("%d", num);
+	system("pause");
+	return 0;
+}
+int num = 36;
+
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	int xyz = 20;
+	{
+		int xyz = 40;
+	}
+	printf("%d", xyz);
+	system("pause");
+	return 0;
+}
+int num = 36;
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	char arr[] = "Cat";
+	*arr = 'B';
+	printf("%s", arr);
+	system("pause");
+	return 0;
+}
+op:Bat
+
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	char *ptr = "Cat";
+	*ptr= 'B';
+	printf("%s", ptr);
+	system("pause");
+	return 0;
+}
+op:Run time errror
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	char arr1[50];
+	char arr2[50] = "hello"
+	arr1 = arr2;
+	printf("%s", arr1);
+	system("pause");
+	return 0;
+}
+op:compilation error
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	char arr1[50]="hello";
+	char arr2[50] = "hello";
+	if (arr1 = arr2)
+	{
+		
+	}
+	system("pause");
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	char *ptr, **ptr1;
+	printf("%u", sizeof(ptr));
+	printf("%u", sizeof(ptr1));
+	system("pause");
+	return 0;
+}
+
+
+
+
+Diffrent Types of constant:
+1.define constant
+   #define x 10
+   main()
+   {
+   
+   printf("%d",x);
+   #undef x //undefining x
+   }
+2.memory constant
+3.literal constant
+
+
+macro
+inclusion
+compiler contro directives
+
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define x 10;
+int main() {
+#define x 100;
+	printf("%d", x);
+	system("pause");
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	char num = '\010';
+	printf("%d", num);
+	system("pause");
+	return 0;
+}
+
+op:8
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	void num = 10;
+	printf("%v", num);
+	system("pause");
+	return 0;
+}
+op:compilation error bcz no void varibles and pointers
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	void *ptr;
+	int num = 10;
+	ptr = &num;
+	printf("%d", ptr);
+	system("pause");
+	return 0;
+}
+op:Adress
+void have pointers
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	printf("%d\t", sizeof(20.5));
+	printf("%d\t", sizeof(4));
+	system("pause");
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	signed a;
+	unsigned b;
+	a = 6u + -16 + 16u + -6; //0
+	b = a + 1;//1
+	if (a == b)
+		printf("%d %d", a, b);
+	else
+		printf("%d %d", a, b);
+	
+	return 0;
+}
+
+
+enum is applied only for integers
+enum fruits{apple,bannana};
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	extern int num;
+	num=5;
+	printf("%d",num);
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+char * ptr;
+	printf("%d %d",sizeof(ptr),sizeof(*ptr));
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+int num=- -2;
+printf("%d",num);
+	return 0;
+}
+
+
+interrupt //odd
+register
+extern
+huge //extend memmory
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+	10;
+	printf("%d", 10);
+	system("pause");
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+char num=127;
+num=num+1;
+printf("%d",num);
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+int size=sizeof(volatile)+sizeof(const);
+printf("%d",++size);
+	return 0;
+}
+
+op:output not predictable bcz volatile is noit predictable
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+static int num=6;
+printf("%d",num--);
+if(num)
+main();
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+float x=3.14;
+double y=3.14;
+printf("%f %ff",x,y);
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+static int num=3;
+
+if(--num)
+main();
+printf("%d",num);
+	return 0;
+}
+
+//wait 
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+int i=5;
+int a=++i + ++i + ++i + ++i;
+printf("%d",a);
+	return 0;
+}
+//wait
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+int i=5;
+int a=--i + --i + --i ;
+printf("%d",a);
+	return 0;
+}
+
+//wait
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+int i=5;
+int a=--i + --i + --i + --i;
+printf("%d",a);
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+int a=2,b=2,c=0,d=2,m;
+m=a++&&b++&&c++||d++;
+printf("%d %d %d %d %d",a,b,c,d,m);
+printf("%d",a);
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+int i=5;
+int a=--i + ++i - i-- + --i;
+printf("%d",a);
+	return 0;
+}
+//own
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+int a=10U + 11;
+printf("%d",a);
+	return 0;
+}
+//own
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+int a=100U + 11 + 100L ;
+printf("%d",a);
+	return 0;
+}
+
+Control statements(conditional statements):-
+repetition:
+    Try to repeat multiple times use control loops
+    1.for(intilization,condition,increment/decrement)
+    2.while(condition)//one form of for loop
+    3.dowhile (atleast one condition is check)
+       do{
+          }while(condition)
+        
+resuing:
+    f()//example
+    
+ #include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+if(true)
+{
+    printf("hello");
+}
+else{
+    printf("hellop");
+}
+	return 0;
+}
+op:hellop
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+char str[]="\0";
+if(printf("%s",str))
+printf("In");
+else
+printf("else");
+	return 0;
+}
+op=else
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+if(printf("0"))
+printf("In");
+else
+printf("else");
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+int i=5,j=5;
+if(i==j);
+printf("equal");
+else
+printf("notequal");
+	return 0;
+}
+op:compilation error
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+int i=5,j=5;
+if(i==j);
+printf("equal");
+
+	return 0;
+}
+op:equal //after the if block bcz equal printing
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+int i=25;
+if(i==25);
+i=50;
+if(i==25)
+i=i+1;
+else
+i=i+1;
+printf("%d",i);
+
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+int i=2;
+if(i==(1,2))
+printf("hai");
+else
+printf("else");
+
+	return 0;
+}
+op:hai
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main() {
+if(sizeof('\0'))
+printf("yes");
+else
+printf("no");
+
+	return 0;
+}
+op:yes
+
+
+new question in techinal:
+1
+2 6
+3 7 10
+4 8 11 13
+5 9 12 14 15
