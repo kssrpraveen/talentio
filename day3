@@ -1,0 +1,198 @@
+Write a program to print highest prime numbers frequency limits from given list?
+input:
+2 4 10 16 29
+2,4=2,3
+4,10=3,7
+10,16=11,13
+16,29=17,19,23,29
+output=16 29
+program:
+#include<stdio.h>
+#include<limits.h>
+#include<math.h>
+int prime(int prim)
+{
+        if(prim<=1)
+        {
+            return 0;
+        }
+        for(int j=2;j<=sqrt(prim);j++)
+        {
+            if(prim%j==0)
+            {
+                return 0;
+            }
+        }
+        return 1;
+
+}
+int primecount(int k,int l)
+{
+    int c=0,i,j,flag=0;
+    for(i=k;i<=l;i++)
+    {
+        c+=prime(i);
+    }
+    return c;
+}
+int main()
+{
+    int n,pr,max;
+    max=INT_MIN;
+    scanf("%d",&n);
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(int i=0;i<n-1;i++)
+    {
+        pr=primecount(a[i],a[i+1]);
+        if(pr>max)
+        {
+            max=pr;
+        }
+    }
+    printf("%d",max);
+	return 0;
+}
+
+
+Write a logic to print the follwing pattern
+4 4 4 4 4 4 4
+4 3 3 3 3 3 4
+4 3 2 2 2 3 4
+4 3 2 1 2 3 4
+4 3 2 2 2 3 4
+4 3 3 3 3 3 4
+4 4 4 4 4 4 4 
+program:
+#include<stdio.h>
+#include<limits.h>
+#include<math.h>
+int main()
+{
+  int n,k;
+  scanf("%d",&n);
+  k=n;
+  n=(n*2)-1;
+  int a[n][n];
+  int i=0,j=0,s=0;
+  while(k)
+  {
+      while(j<(n-s))
+      {
+          a[i][j]=k;
+          j++;
+      }
+      j--;
+      i++;
+      while(i<(n-s))
+      {
+          a[i][j]=k;
+          i++;
+      }
+      i--;
+      j--;
+      while(j>=s)
+      {
+          a[i][j]=k;
+          j--;
+      }
+      j++;
+      i--;
+      while(i>s)
+      {
+           a[i][j]=k;
+           i--;
+      }
+      s++;
+      k--;
+      j++;
+      i++;
+
+  }
+    for(int i=0;i<n;i++)
+    {
+
+        for(j=0;j<n;j++)
+        {
+
+            printf("%d",a[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+
+
+#include<stdio.h>
+#include<limits.h>
+#include<math.h>
+void dynamic(int n,...)
+{
+    printf("%d",n);
+}
+int main()
+{
+
+      dynamic(2,4,6,8);
+    dynamic(3,4,6,8);
+
+}
+
+#include<stdio.h>
+int main()
+{
+
+    char *s="HELLO, " "World";
+    printf("%s",s);
+
+}
+
+#include<stdio.h>
+int main()
+{
+
+main();
+return 0;
+
+}
+output:runtime error
+
+#include<stdio.h>
+a()
+{
+printf("a called");
+}
+b()
+{
+printf("b called");
+}
+c()
+{
+printf("c called");
+}
+int main()
+{
+int (*ptr[3])();
+ptr[0]=a;
+ptr[1]=b;
+ptr[2]=c;
+ptr[2]();
+
+}
+output:c called
+
+#include<stdio.h>
+function()
+{
+    int a=250;
+}
+int main()
+{
+int a,i;
+i=function();
+printf("%d",i);
+
+}
