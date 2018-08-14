@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<limits.h>
+#include<math.h>
+int main()
+{
+  int n,k;
+  scanf("%d",&n);
+  k=n;
+  n=(n*2)-1;
+  int a[n][n];
+  int i=0,j=0,s=0;
+  while(k)
+  {
+      while(j<(n-s))
+      {
+          a[i][j]=k;
+          j++;
+      }
+      j--;
+      i++;
+      while(i<(n-s))
+      {
+          a[i][j]=k;
+          i++;
+      }
+      i--;
+      j--;
+      while(j>=s)
+      {
+          a[i][j]=k;
+          j--;
+      }
+      j++;
+      i--;
+      while(i>s)
+      {
+           a[i][j]=k;
+           i--;
+      }
+      s++;
+      k--;
+      j++;
+      i++;
+
+  }
+    for(int i=0;i<n;i++)
+    {
+
+        for(j=0;j<n;j++)
+        {
+
+            printf("%d",a[i][j]);
+        }
+        printf("\n");
+    }
+}
