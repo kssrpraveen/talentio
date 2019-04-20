@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+int main()
+{
+    int n,s=0;
+    char c='*';
+    scanf("%d",&n);
+    int k=n;
+    int i=0,j=0;
+    char arr[n][n];
+    while(k)
+    {
+    while(j<(n-s))
+    {
+       arr[i][j]=c;
+        j++;
+    }
+    j--;
+    i++;
+    while(i<(n-s))
+    {
+        arr[i][j]=c;
+        i++;
+    }
+    i--;
+    j--;
+    while(j>=s)
+    {
+        arr[i][j]=c;
+        j--;
+    }
+    j++;
+    i--;
+    while(i>s)
+    {
+        arr[i][j]=c;
+        i--;
+    }
+    i++;
+    s++;
+    k--;
+    j++;
+    c=' ';
+    }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            printf("%c ",arr[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
